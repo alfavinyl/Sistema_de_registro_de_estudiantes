@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar usuario</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            width: 320px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4f46e5;
+        }
+
+        .cancel-btn {
+            background-color: #e5e7eb;
+            color: #374151;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .cancel-btn:hover {
+            background-color: #d1d5db;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Editar usuario</h1>
+
+        <form action="/usuarios/editar/{{ usuario.id }}" method="post">
+            <label for="nombre">Nombre</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                value="{{ usuario.nombre }}"
+                required
+            >
+
+            <label for="edad">Edad</label>
+            <input
+                type="number"
+                id="edad"
+                name="edad"
+                value="{{ usuario.edad }}"
+                required
+            >
+
+             <label for="correo">Correo</label>
+            <input
+                type="email"
+                id="correo"
+                name="correo"
+                value="{{ usuario.correo }}"
+                required
+            >
+
+            
+             <label for="tema">Tema</label>
+            <input
+                type="text"
+                id="tema"
+                name="tema"
+                value="{{ usuario.tema }}"
+                required
+            >
+
+            <div class="actions">
+                <button type="submit">Guardar cambios</button>
+                <a href="/usuarios" class="cancel-btn">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
