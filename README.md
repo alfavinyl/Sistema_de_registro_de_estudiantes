@@ -25,11 +25,17 @@ Aplicación web para gestionar el registro de alumnos de asesorías académicas.
 ## 📂 Estructura del proyecto
 
 crud_estudiantes/
+
 ├── database.py        # Conexión a MySQL
+
 ├── main.py            # Rutas y lógica principal (FastAPI)
+
 ├── templates/         # Vistas HTML con Jinja2
+
 ├── requirements.txt   # Dependencias
+
 ├── test_db.py         # Prueba de conexión a la base de datos
+
 └── .env               # Variables de entorno (no incluido en el repo)
 
 ---
