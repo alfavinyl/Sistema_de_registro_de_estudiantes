@@ -44,7 +44,7 @@ crud_estudiantes/
 
 **1. Clona el repositorio**
 ```bash
-git clone https://github.com/alfavinyl/crud_estudiantes_.git
+git clone https://github.com/alfavinyl/crud_estudiantes.git
 cd crud_estudiantes
 ```
 
