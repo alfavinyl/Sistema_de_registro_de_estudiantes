@@ -56,8 +56,11 @@ pip install -r requirements.txt
 **3. Crea tu archivo `.env`** con tus credenciales de MySQL:
 
 DB_HOST=localhost
+
 DB_USER=tu_usuario
+
 DB_PASSWORD=tu_contraseña
+
 DB_NAME=asesorias
 
 **4. Crea la tabla en MySQL**
