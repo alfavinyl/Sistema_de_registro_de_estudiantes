@@ -18,7 +18,7 @@
             background: #ffffff;
             padding: 25px 30px;
             border-radius: 12px;
-            width: 700px;
+            width: 800px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
@@ -115,6 +115,7 @@
                     <th>Edad</th>
                     <th>Correo</th>
                     <th>Tema</th>
+                    <th>Ciudad</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -126,6 +127,7 @@
                     <td>{{ u.edad }}</td>
                     <td>{{ u.correo }}</td>
                     <td>{{ u.tema }}</td>
+                    <td>{{ u.ciudad }}</td>
                     <td class="action-links">
                         <a href="/usuarios/editar/{{ u.id }}">✏️ Editar</a>
 

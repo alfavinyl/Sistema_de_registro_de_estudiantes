@@ -22,13 +22,14 @@ def guardar_usuario(
     nombre: str = Form(...),
     edad: int = Form(...),
     correo: str = Form(...),
-    tema: str = Form(...)
+    tema: str = Form(...),
+    ciudad: str = Form(...)
 ):
     conn = get_connection()
     cursor = conn.cursor()
 
-    sql = "INSERT INTO alumnos (nombre, edad, correo, tema) VALUES (%s, %s, %s, %s)"
-    valores = (nombre, edad, correo, tema)
+    sql = "INSERT INTO alumnos (nombre, edad, correo, tema, ciudad) VALUES (%s, %s, %s, %s, %s)"
+    valores = (nombre, edad, correo, tema, ciudad)
 
     cursor.execute(sql, valores)
     conn.commit()
@@ -46,7 +47,7 @@ def mostrar_usuarios(request: Request):
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
 
-        cursor.execute("SELECT id, nombre, edad, correo, tema FROM alumnos")
+        cursor.execute("SELECT id, nombre, edad, correo, tema, ciudad FROM alumnos")
         usuarios = cursor.fetchall()
 
         cursor.close()
@@ -67,7 +68,7 @@ def editar_usuario_form(request: Request, id: int):
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
 
-        sql = "SELECT id, nombre, edad, correo, tema FROM alumnos WHERE id = %s"
+        sql = "SELECT id, nombre, edad, correo, tema, ciudad FROM alumnos WHERE id = %s"
         cursor.execute(sql, (id,))
         usuario = cursor.fetchone()
 
@@ -89,7 +90,8 @@ def editar_usuario(
     nombre: str = Form(...),
     edad: int = Form(...),
     correo: str = Form(...),
-    tema: str = Form(...)
+    tema: str = Form(...),
+    ciudad: str = Form(...)
 ):
     try:
         conn = get_connection()
@@ -97,11 +99,11 @@ def editar_usuario(
 
         sql = """
             UPDATE alumnos
-            SET nombre = %s, edad = %s, correo = %s, tema = %s
+            SET nombre = %s, edad = %s, correo = %s, tema = %s, ciudad = %s
             WHERE id = %s
         """
 
-        cursor.execute(sql, (nombre, edad, correo, tema, id))
+        cursor.execute(sql, (nombre, edad, correo, tema, ciudad, id))
         conn.commit()
 
         cursor.close()
